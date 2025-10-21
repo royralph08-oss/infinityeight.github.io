@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinity Eight | Members Output</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #caa25286;
+      color: #4b3b2b;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      margin: 40px 0 20px;
+      font-size: 2.2rem;
+      color: #5a4635;
+    }
+
+    /* Member box */
+    .member-box {
+      background: #fffdf8;
+      border: 2px solid #e0caa3;
+      border-radius: 20px;
+      margin: 40px auto;
+      width: 90%;
+      max-width: 900px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 25px;
+      transition: transform 0.3s ease;
+      position: relative;
+      text-align: left;
+    }
+
+    .member-box:hover {
+      transform: scale(1.02);
+    }
+
+    /* Profile photo + name */
+    .member-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 15px;
+    }
+
+    .member-photo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e0caa3;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .member-name {
+      font-size: 1.5rem;
+      color: #5a4635;
+      font-weight: 600;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 2px solid #d8c5aa;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05) rotate(-1.5deg);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    /* Lightbox popup */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease;
+      z-index: 1000;
+    }
+
+    .lightbox.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-img {
+      width: 500px;
+      max-width: 90%;
+      border-radius: 20px;
+      transform-style: preserve-3d;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      animation: pop3D 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes pop3D {
+      0% { transform: perspective(800px) rotateY(-30deg) rotateX(10deg) scale(0.2); opacity: 0; }
+      60% { transform: perspective(800px) rotateY(15deg) rotateX(-5deg) scale(1.1); opacity: 1; }
+      100% { transform: perspective(800px) rotateY(0deg) rotateX(0deg) scale(1); opacity: 1; }
+    }
+
+    /* Floating emojis */
+    .particle {
+      position: absolute;
+      font-size: 18px;
+      opacity: 0.9;
+      pointer-events: none;
+      animation: floatUp 1.8s ease-out forwards;
+      z-index: 1500;
+    }
+
+    @keyframes floatUp {
+      0% { transform: scale(0) translateY(0) rotate(0deg); opacity: 1; }
+      50% { transform: scale(1.2) translateY(-40px) rotate(20deg); opacity: 1; }
+      100% { transform: scale(0.6) translateY(-90px) rotate(60deg); opacity: 0; }
+    }
+
+    /* Back button */
+    .back-btn {
+      margin: 40px 0;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      background: linear-gradient(135deg, #fddbb3, #f5b3b3);
+      color: #4b2e2b;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      margin-bottom: 40px;
+      font-size: 0.9rem;
+      color: #6b5e4e;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Infinity Eight – Members' Outputs 💖✨</h1>
+
+  <!-- Member Boxes -->
+  <div class="member-box">
+    <div class="member-header">
+      <img src="image copy 2.png" alt="Raphael" class="member-photo">
+      <div class="member-name">Raphael Reynoso</div>
+    </div>
+    <div class="gallery">
+      <img src="rey - 1.jpg" alt="Output 1">
+      <img src="rey - 2.jpg" alt="Output 2">
+      <img src="rey - 3.jpg" alt="Output 3">
+      <img src="rey - 4.jpg" alt="Output 4">
+      <img src="rey - 5.jpg" alt="Output 5">
+    </div>
+  </div>
+
+  <div class="member-box">
+    <div class="member-header">
+      <img src="f4e3b710-410f-42b3-b380-e7eb0deaca96.jpeg" alt="Catherine" class="member-photo">
+      <div class="member-name">Catherine Grace Alota</div>
+    </div>
+    <div class="gallery">
+      <img src="output4.jpg" alt="Output 4">
+      <img src="output5.jpg" alt="Output 5">
+      <img src="output6.jpg" alt="Output 6">
+    </div>
+  </div>
+
+  <div class="member-box">
+    <div class="member-header">
+      <img src="download (13).jpeg" alt="Angelica" class="member-photo">
+      <div class="member-name">Angelica Resane</div>
+    </div>
+    <div class="gallery">
+      <img src="output7.jpg" alt="Output 7">
+      <img src="output8.jpg" alt="Output 8">
+    </div>
+  </div>
+
+  <div class="member-box">
+    <div class="member-header">
+      <img src="mancira pic.png" alt="Princess" class="member-photo">
+      <div class="member-name">Princess Mancira</div>
+    </div>
+    <div class="gallery">
+      <img src="ma - 1.jpeg" alt="Output 9">
+    </div>
+  </div>
+
+  <div class="member-box">
+    <div class="member-header">
+      <img src="image copy.png" alt="Divine" class="member-photo">
+      <div class="member-name">Ma. Divine Grace Pastor</div>
+    </div>
+    <div class="gallery">
+      <img src="div 1.jpeg" alt="Output 11">
+      <img src="div 2.jpeg" alt="Output 12">
+      <img src="div 3.jpeg" alt="Output 13">
+      <img src="div 4.jpeg" alt="Output 14">
+    </div>
+  </div>
+
+  <div class="member-box">
+    <div class="member-header">
+      <img src="image.png" alt="Kirstin" class="member-photo">
+      <div class="member-name">Kirstin Jannah Salac</div>
+    </div>
+    <div class="gallery">
+      <img src="jan - 1.jpeg" alt="Output 13">
+      <img src="jan - 2.jpeg" alt="Output 13">
+      <img src="jan - 3.jpeg" alt="Output 13">
+      <img src="jan - 4.jpeg" alt="Output 13">
+      <img src="jan - 5.jpeg" alt="Output 13">
+    </div>
+  </div>
+
+  <div class="member-box">
+    <div class="member-header">
+      <img src="image-removebg-preview (4).png" alt="Cabib" class="member-photo">
+      <div class="member-name">Mohammad Cabib</div>
+    </div>
+    <div class="gallery">
+      <img src="output15.jpg" alt="Output 15">
+      <img src="output16.jpg" alt="Output 16">
+    </div>
+  </div>
+
+  <!-- Back button -->
+  <button class="back-btn" onclick="window.location.href='index.html'">← Go Back to Home</button>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <img class="popup-img" id="popup-img" src="" alt="Expanded Output">
+  </div>
+
+  <footer>© 2025 Infinity Eight | Output Showcase</footer>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const popupImg = document.getElementById('popup-img');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', e => {
+        popupImg.src = img.src;
+        lightbox.classList.add('show');
+        const symbols = ['✨', '💖', '🌟', '❤️', '💫'];
+        for (let i = 0; i < 20; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          particle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+          particle.style.left = e.pageX + (Math.random() * 160 - 80) + "px";
+          particle.style.top = e.pageY + (Math.random() * 160 - 80) + "px";
+          particle.style.fontSize = (Math.random() * 16 + 14) + "px";
+          particle.style.color = ["#ff8ba7","#ffd966","#ffffff","#ffb3ec","#9ad0f5","#ff4d6d"][Math.floor(Math.random()*6)];
+          document.body.appendChild(particle);
+          setTimeout(() => particle.remove(), 1800);
+        }
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('show');
+    });
+  </script>
+</body>
+</html>

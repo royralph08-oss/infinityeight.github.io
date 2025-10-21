@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinity Eight | Group 8</title>
+<style>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: url('a13f4c56-8347-4c7b-a136-51a9c60114af.gif') no-repeat center center/cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #3b2a24;
+  overflow: hidden;
+  perspective: 1500px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 20px 40px;
+  border-radius: 25px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
+  transform-style: preserve-3d;
+  animation: headerEnter 1.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes headerEnter {
+  0% { opacity: 0; transform: rotateX(-90deg) translateY(-50px) scale(0.7); }
+  60% { transform: rotateX(20deg) translateY(10px) scale(1.05); }
+  100% { opacity: 1; transform: rotateX(0deg) translateY(0) scale(1); }
+}
+
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  color: #2f1b14;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(255, 200, 150, 0.6);
+}
+
+header p {
+  margin-top: 10px;
+  font-style: italic;
+  color: #5b4237;
+  font-size: 1.2rem;
+  text-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+/* Enter Button */
+.enter-btn {
+  background: linear-gradient(90deg, #ffd9a1, #ffbfc1);
+  border: none;
+  border-radius: 50px;
+  padding: 16px 50px;
+  color: #3a1d0b;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  margin-top: 60px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  animation: btnEnter 2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes btnEnter {
+  0% { opacity: 0; transform: scale(0.5) rotate(-15deg) translateY(50px); }
+  70% { transform: scale(1.1) rotate(5deg) translateY(-10px); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg) translateY(0); }
+}
+
+.enter-btn:hover {
+  transform: scale(1.15) rotate(-2deg);
+  box-shadow: 0 15px 45px rgba(0,0,0,0.5);
+}
+.enter-btn::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.4);
+  transition: left 0.6s ease;
+}
+.enter-btn:hover::after { left: 100%; }
+
+/* Hamburger Icon */
+.hamburger {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease;
+}
+
+.hamburger:hover { transform: scale(1.1); }
+
+.hamburger div {
+  width: 28px;
+  height: 3px;
+  background-color: #3a1d0b;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hamburger div::before,
+.hamburger div::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 3px;
+  background-color: #3a1d0b;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.hamburger div::before { top: -8px; }
+.hamburger div::after { top: 8px; }
+
+.hamburger.active div {
+  background: transparent;
+}
+.hamburger.active div::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+.hamburger.active div::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* Dropdown Menu */
+.menu {
+  position: fixed;
+  bottom: 100px;
+  right: 40px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(6px);
+  padding: 15px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  animation: fadeIn 0.5s ease forwards;
+}
+.menu.show { display: flex; }
+
+.menu button {
+  background: linear-gradient(90deg, #ffe2a6, #ffb4c0);
+  border: none;
+  border-radius: 15px;
+  padding: 12px 20px;
+  color: #3a1d0b;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+.menu button:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 184, 190, 0.6);
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 20px;
+  color: #4b3127;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  background: rgba(255,255,255,0.4);
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+
+/* Members Popup */
+.member-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.member-modal.show {
+  display: flex;
+  animation: fadeIn 0.4s ease;
+}
+.modal-content {
+  background: rgba(255,255,255,0.9);
+  padding: 30px 50px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  backdrop-filter: blur(8px);
+  max-width: 600px;
+  animation: popIn 0.6s ease;
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.7) rotate(-10deg); }
+  to { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+.modal-content h2 {
+  font-family: "Playfair Display", serif;
+  color: #3a1d0b;
+  margin-bottom: 20px;
+}
+.members-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.member-card {
+  text-align: center;
+}
+.member-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffbfc1;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.member-card p {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #3a1d0b;
+}
+.close-btn {
+  margin-top: 20px;
+  background: linear-gradient(90deg, #ffd9a1, #ffbfc1);
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  color: #3a1d0b;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Cat Popup Animation */
+.cat-popup {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+.cat-popup.show {
+  display: flex;
+}
+.cat-image {
+  width: 250px;
+  height: auto;
+  animation: catPop 1.2s ease;
+  filter: drop-shadow(0 0 20px rgba(255, 200, 150, 0.8));
+}
+@keyframes catPop {
+  0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+  60% { transform: scale(1.2) rotate(10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* Particles */
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd9a1, #ffbfc1);
+  box-shadow: 0 0 10px #ffd9a1, 0 0 20px #ffbfc1;
+  pointer-events: none;
+  animation: particleMove 1.6s forwards;
+}
+@keyframes particleMove {
+  0% { opacity: 1; transform: translate(0,0) scale(1) rotate(0deg); }
+  100% { opacity: 0; transform: translate(var(--x), var(--y)) rotate(var(--rot)) scale(0); }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>∞ Infinity Eight</h1>
+  <p>“meow meow meow”</p>
+</header>
+
+<button class="enter-btn" onclick="openScrapbook()">📖 CLICK TO OPEN</button>
+
+<!-- Hamburger Icon -->
+<div class="hamburger" id="hamburger"><div></div></div>
+
+<!-- Dropdown Menu -->
+<div class="menu" id="menu">
+  <button onclick="goTo('assessment.html')">📝 Assessment</button>
+  <button onclick="showMembers()">👥 Members</button>
+  <button onclick="goTo('lesson-african.html')">📚 Lesson</button>
+  <button onclick="goTo('output.html')">🎨 Output</button>
+</div>
+
+<!-- Members Popup -->
+<div class="member-modal" id="memberModal">
+  <div class="modal-content">
+    <h2>👥 Infinity Eight Members</h2>
+    <div class="members-grid">
+      <div class="member-card"><img src="download (13).jpeg" alt="Member 1"><p>Angelica Resane</p></div>
+      <div class="member-card"><img src="f4e3b710-410f-42b3-b380-e7eb0deaca96.jpeg" alt="Member 2"><p>Catherine Grace Alota</p></div>
+      <div class="member-card"><img src="image copy.png" alt="Member 3"><p>Ma. Divine Grace Pastor</p></div>
+      <div class="member-card"><img src="mancira pic.png" alt="Member 4"><p>Princess Mancira</p></div>
+      <div class="member-card"><img src="image.png" alt="Member 5"><p>Kirstin Jannah Salac</p></div>
+      <div class="member-card"><img src="image copy 2.png" alt="Member 6"><p>Raphael Reynoso</p></div>
+      <div class="member-card"><img src="image-removebg-preview (4).png" alt="Member 7"><p>Mohammad Cabib</p></div>
+    </div>
+    <button class="close-btn" onclick="closeMembers()">✖ Close</button>
+  </div>
+</div>
+
+<!-- Cat Popup -->
+<div class="cat-popup" id="catPopup">
+  <img src="a3af8c0b-9263-4172-9e81-ca1a73a347be.gif" alt="Cute Cat" class="cat-image">
+</div>
+
+<!-- Meow Sound -->
+<audio id="meowSound" src="Meow Sound Effect.mp3" preload="auto"></audio>
+
+<footer>
+  <p>© 2025 Infinity Eight | Memories that stay forever 🌿</p>
+</footer>
+
+<script>
+function createMagic() {
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+  for (let i = 0; i < 80; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const angle = Math.random() * 2 * Math.PI;
+    const radius = (200 + Math.random() * 300);
+    const x = Math.cos(angle) * radius + 'px';
+    const y = Math.sin(angle) * radius + 'px';
+    const rot = Math.random() * 720 + 'deg';
+    p.style.setProperty('--x', x);
+    p.style.setProperty('--y', y);
+    p.style.setProperty('--rot', rot);
+    p.style.left = centerX + 'px';
+    p.style.top = centerY + 'px';
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 1600);
+  }
+}
+
+function openScrapbook() {
+  const catPopup = document.getElementById('catPopup');
+  const meow = document.getElementById('meowSound');
+
+  catPopup.classList.add('show');
+  meow.currentTime = 0;
+  meow.play();
+  createMagic();
+
+  setTimeout(() => {
+    catPopup.classList.remove('show');
+    window.location.href = "index.html";
+  }, 2000);
+}
+
+function goTo(page) {
+  createMagic();
+  setTimeout(() => { window.location.href = page; }, 1000);
+}
+
+/* Hamburger */
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  menu.classList.toggle('show');
+});
+
+/* Members Modal */
+const memberModal = document.getElementById('memberModal');
+function showMembers() {
+  menu.classList.remove('show');
+  hamburger.classList.remove('active');
+  memberModal.classList.add('show');
+}
+function closeMembers() {
+  memberModal.classList.remove('show');
+}
+window.onclick = function(e) {
+  if (e.target === memberModal) closeMembers();
+}
+</script>
+</body>
+</html>
