@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>African Literature</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #6b3f1d, #2b1a0f);
+      color: #fff9ec;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    .scroll {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 50px 60px;
+      background: rgba(90, 58, 28, 0.35);
+      border-radius: 16px;
+      box-shadow: 0 0 60px rgba(0,0,0,0.6), inset 0 0 40px rgba(255, 220, 180, 0.1);
+      backdrop-filter: blur(8px);
+      border: 3px solid rgba(255, 214, 138, 0.3);
+      position: relative;
+      background-image: 
+        url('https://www.transparenttextures.com/patterns/paper-fibers.png'),
+        linear-gradient(rgba(120, 75, 40, 0.4), rgba(90, 50, 20, 0.4));
+      animation: unroll 2.5s ease-out;
+      overflow: hidden;
+    }
+
+    @keyframes unroll {
+      0% { transform: scaleY(0); opacity: 0; }
+      100% { transform: scaleY(1); opacity: 1; }
+    }
+
+    /* ---------- SHIMMER BORDER ---------- */
+    .scroll::before,
+    .scroll::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background-image: url('linear.jpeg');
+      background-repeat: repeat-x;
+      background-size: contain;
+      opacity: 0.8;
+      animation: shimmer 8s linear infinite;
+    }
+
+    .scroll::before { top: 0; border-top-left-radius: 16px; border-top-right-radius: 16px; }
+    .scroll::after { bottom: 0; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; transform: rotate(180deg); }
+
+    @keyframes shimmer {
+      0% { filter: brightness(0.8) saturate(1); }
+      50% { filter: brightness(1.5) saturate(1.2); }
+      100% { filter: brightness(0.8) saturate(1); }
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      text-align: center;
+      font-size: 2.8em;
+      color: #ffeab4;
+      text-shadow: 0 0 12px rgba(255, 215, 140, 0.9);
+      margin-bottom: 25px;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #d6a14b; }
+      to { text-shadow: 0 0 20px #ffd88c; }
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      color: #ffd9a0;
+      border-bottom: 2px solid rgba(255, 215, 160, 0.3);
+      padding-bottom: 5px;
+      margin-top: 35px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    p {
+      background: rgba(255, 245, 230, 0.08);
+      padding: 12px 20px;
+      border-radius: 12px;
+      line-height: 1.7;
+      margin: 10px 0;
+      color: #fffdf8;
+    }
+
+    strong { color: #ffdd99; }
+
+    .buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #a86c3d, #d4a017);
+      border: none;
+      color: #fff;
+      padding: 10px 25px;
+      margin: 8px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #d4a017, #a86c3d);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="scroll">
+    <h1>🌍 African Literature</h1>
+
+    <p>African literature is made up of many different writings that show the hard experiences of slavery, unfair treatment, and violence. It makes readers think deeply about life and what it means to be human. These stories often come from real pain and strong emotions.</p>
+
+    <h2>Oral African Literature</h2>
+    <p><strong>Oral literature</strong>, also called orature, has two main types: prose and verse (poetry).</p>
+    <p><strong>Prose</strong> includes stories that pass down culture, history, and myths through songs, call-and-response, and performances. These stories teach lessons and help keep traditions alive.</p>
+    <p><strong>Poetry</strong> is used to praise, pray, or celebrate. It plays an important role in both religion and daily life by honoring heroes, saints, and special events.</p>
+
+    <h2>Pre-colonial African Literature</h2>
+    <p>Before Europeans arrived, Africans already created stories, songs, and poems that showed their way of life, culture, and beliefs.</p>
+    <p><strong>Epics</strong> are long stories about brave heroes who face big challenges to help or protect their people.</p>
+    <p><strong>Oral Traditions</strong> mean sharing stories and lessons by speaking instead of writing.</p>
+    <p><strong>Chain or Cumulative Tales</strong> are stories that repeat certain parts so they are easier and more fun to remember.</p>
+    <p><strong>Trickster Stories</strong> are tales about smart characters who use clever ideas to solve problems or fool others. They teach lessons about honesty, greed, and wisdom.</p>
+
+    <h2>Colonial African Literature</h2>
+    <p>During the time of European control (late 1800s to mid-1900s), African writers began turning spoken stories into written ones. These works questioned colonial power and explored issues like identity, resistance, and the clash between African and European values. They also helped shape African writing after independence.</p>
+
+    <h2>Post-colonial African Literature</h2>
+    <p>From the 1950s to 1960s, African writing became more well-known and widespread.</p>
+    <p><strong>Languages:</strong> Writers used both Western (English, French, Portuguese) and African languages (like Hausa).</p>
+    <p><strong>Themes:</strong> They wrote about problems such as corruption, inequality, and women’s rights.</p>
+    <p><strong>Common conflicts:</strong> Old vs. new ways, traditional vs. modern life, African vs. foreign ideas, and community vs. individual needs.</p>
+    <p><strong>Female writers:</strong> More women started writing after independence.</p>
+    <p><strong>Awards:</strong> Writers like Wole Soyinka (1986 Nobel Prize) became world famous.</p>
+
+    <h2>Contemporary African Literature</h2>
+    <p>Since 2010, African writing has continued to grow. Many authors now create fresh and modern works that move away from old formal styles. Book events and literary awards have also become popular, showing the creativity and energy of African literature today.</p>
+
+    <h2>Conclusion</h2>
+    <p>African literature has grown from spoken stories to modern written works that express the history, struggles, and dreams of African people. It reflects their journey from pre-colonial traditions to colonial challenges and post-independence growth. Today, African writers continue to share powerful stories that celebrate culture, question society, and inspire change.</p>
+
+    <div class="buttons">
+      <button class="btn" onclick="window.location.href='african-lesson.html'">← Back to African Lesson</button>
+      <button class="btn" onclick="window.location.href='index.html'">🏠 Back to Home</button>
+    </div>
+  </div>
+</body>
+</html>
