@@ -311,6 +311,68 @@ footer {
   0% { opacity: 1; transform: translate(0,0) scale(1) rotate(0deg); }
   100% { opacity: 0; transform: translate(var(--x), var(--y)) rotate(var(--rot)) scale(0); }
 }
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  justify-items: center;
+  margin-top: 15px;
+}
+
+.auto-grid button {
+  background: linear-gradient(135deg, #ffd9a1, #ffbfc1);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #3a1d0b;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auto-grid button:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(255, 184, 190, 0.5);
+}
+
+#autoModal .modal-content {
+  max-width: 650px;
+  padding: 35px 50px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 25px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+#autoModal h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: #3a1d0b;
+  margin-bottom: 25px;
+  text-shadow: 0 0 12px rgba(255, 184, 190, 0.6);
+}
+
+#autoModal .close-btn {
+  margin-top: 25px;
+  padding: 12px 25px;
+  font-weight: bold;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #ffd9a1, #ffbfc1);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#autoModal .close-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(255, 184, 190, 0.5);
+}
+
 </style>
 </head>
 <body>
@@ -330,7 +392,9 @@ footer {
   <button onclick="showMembers()">👥 Members</button>
   <button onclick="goTo('lesson-african.html')">📚 Lesson</button>
   <button onclick="goTo('output.html')">🎨 Output</button>
-  <button onclick="goTo('written.html')"> Written Report </button>
+  <button onclick="goTo('written.html')">🧾 Written Report </button>
+  <button onclick="showAutobiographies()">📖 Autobiographies</button>
+
 </div>
 
 <!-- Members Popup -->
@@ -349,7 +413,22 @@ footer {
     <button class="close-btn" onclick="closeMembers()">✖ Close</button>
   </div>
 </div>
-
+<!-- Autobiographies Popup -->
+<div class="member-modal" id="autoModal">
+  <div class="modal-content">
+    <h2>📖 Autobiographies</h2>
+    <div class="auto-grid">
+      <button onclick="openAuto('angelica.html')">Angelica Resane</button>
+      <button onclick="openAuto('catherine.html')">Catherine Grace Alota</button>
+      <button onclick="openAuto('pastor.html')">Ma. Divine Grace Pastor</button>
+      <button onclick="openAuto('Princess.html')">Princess Mancira</button>
+      <button onclick="openAuto('jannah.html')">Kirstin Jannah Salac</button>
+      <button onclick="openAuto('reynoso.html')">Raphael Reynoso</button>
+      <button onclick="openAuto('cabib.html')">Mohammad Cabib</button>
+    </div>
+    <button class="close-btn" onclick="closeAutobiographies()">✖ Close</button>
+  </div>
+</div>
 <!-- Cat Popup -->
 <div class="cat-popup" id="catPopup">
   <img src="a3af8c0b-9263-4172-9e81-ca1a73a347be.gif" alt="Cute Cat" class="cat-image">
@@ -425,8 +504,31 @@ function closeMembers() {
 window.onclick = function(e) {
   if (e.target === memberModal) closeMembers();
 }
+const autoModal = document.getElementById('autoModal');
+
+function showAutobiographies() {
+  menu.classList.remove('show');
+  hamburger.classList.remove('active');
+  autoModal.classList.add('show');
+}
+
+function closeAutobiographies() {
+  autoModal.classList.remove('show');
+}
+
+// Open individual autobiography pages
+function openAuto(page) {
+  createMagic();
+  setTimeout(() => { window.location.href = page; }, 800);
+}
+
+// Close when clicking outside
+window.onclick = function(e) {
+  if (e.target === memberModal) closeMembers();
+  if (e.target === autoModal) closeAutobiographies();
+}
+
 </script>
 </body>
 </html>
-
 
